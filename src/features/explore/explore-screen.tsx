@@ -11,7 +11,7 @@ import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
-export default function TabTwoScreen() {
+export function ExploreScreen(): React.JSX.Element {
   const safeAreaInsets = useSafeAreaInsets();
   const insets = {
     ...safeAreaInsets,
@@ -59,16 +59,16 @@ export default function TabTwoScreen() {
         </ThemedView>
 
         <ThemedView style={styles.sectionsWrapper}>
-          <Collapsible title="File-based routing">
+          <Collapsible title="React Navigation">
             <ThemedText type="small">
-              This app has two screens: <ThemedText type="code">src/app/index.tsx</ThemedText> and{' '}
-              <ThemedText type="code">src/app/explore.tsx</ThemedText>
+              This app has two registered screens: <ThemedText type="code">Home</ThemedText> and{' '}
+              <ThemedText type="code">Explore</ThemedText>.
             </ThemedText>
             <ThemedText type="small">
-              The layout file in <ThemedText type="code">src/app/_layout.tsx</ThemedText> sets up
-              the tab navigator.
+              The navigator in <ThemedText type="code">src/navigation/app-navigation.tsx</ThemedText>{' '}
+              configures the tabs and links them to the web routes.
             </ThemedText>
-            <ExternalLink href="https://docs.expo.dev/router/introduction">
+            <ExternalLink href="https://reactnavigation.org/docs/getting-started">
               <ThemedText type="linkPrimary">Learn more</ThemedText>
             </ExternalLink>
           </Collapsible>
@@ -126,29 +126,17 @@ export default function TabTwoScreen() {
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  contentContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  container: {
-    maxWidth: MaxContentWidth,
-    flexGrow: 1,
-  },
+  scrollView: { flex: 1 },
+  contentContainer: { flexDirection: 'row', justifyContent: 'center' },
+  container: { maxWidth: MaxContentWidth, flexGrow: 1 },
   titleContainer: {
     gap: Spacing.three,
     alignItems: 'center',
     paddingHorizontal: Spacing.four,
     paddingVertical: Spacing.six,
   },
-  centerText: {
-    textAlign: 'center',
-  },
-  pressed: {
-    opacity: 0.7,
-  },
+  centerText: { textAlign: 'center' },
+  pressed: { opacity: 0.7 },
   linkButton: {
     flexDirection: 'row',
     paddingHorizontal: Spacing.four,
@@ -163,18 +151,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.four,
     paddingTop: Spacing.three,
   },
-  collapsibleContent: {
-    alignItems: 'center',
-  },
+  collapsibleContent: { alignItems: 'center' },
   imageTutorial: {
     width: '100%',
     aspectRatio: 296 / 171,
     borderRadius: Spacing.three,
     marginTop: Spacing.two,
   },
-  imageReact: {
-    width: 100,
-    height: 100,
-    alignSelf: 'center',
-  },
+  imageReact: { width: 100, height: 100, alignSelf: 'center' },
 });

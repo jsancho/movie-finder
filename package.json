@@ -1,9 +1,11 @@
 {
   "name": "movie-finder",
-  "main": "expo-router/entry",
+  "main": "expo/AppEntry",
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "57.0.11",
+    "@react-navigation/bottom-tabs": "7.18.8",
+    "@react-navigation/native": "7.3.16",
     "expo": "57.0.14",
     "expo-constants": "57.0.12",
     "expo-device": "57.0.1",
@@ -11,7 +13,6 @@
     "expo-glass-effect": "57.0.1",
     "expo-image": "57.0.3",
     "expo-linking": "57.0.6",
-    "expo-router": "57.0.14",
     "expo-splash-screen": "57.0.7",
     "expo-status-bar": "57.0.1",
     "expo-symbols": "57.0.2",
@@ -33,7 +34,6 @@
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

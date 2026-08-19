@@ -5,7 +5,6 @@
 ```bash
   src/
     api/         # queries to external APIs.
-    app/         # app entry point
     hooks/       # shared hooks that can be used across the app.
     components/  # shared/generic components that don't belong to specific features.
     constants/   # hardcored configuration values to be re-used.
