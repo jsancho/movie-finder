@@ -29,3 +29,13 @@ Each entry: **Context → Decision → Alternatives → Why → Trade-off**.
 - **Alternatives.** Expo Router's file-based routing and native-tab APIs.
 - **Why.** It keeps route registration, navigation behavior, and linking configuration together in a familiar React Navigation model while supporting the same two-tab experience across native and web.
 - **Trade-off.** New screens must be registered manually rather than becoming routes automatically from their filenames.
+
+---
+
+## ADR-003 — Linting: ESLint 9.39.5
+
+- **Context.** `eslint-config-expo` uses the `eslint/config` API, which was unavailable in the previously pinned ESLint 9.0.0 release.
+- **Decision.** Pin ESLint to 9.39.5.
+- **Alternatives.** Retain an incompatible ESLint release or replace Expo's lint configuration.
+- **Why.** It provides the configuration API required by the installed Expo lint preset while preserving the project's flat-config setup.
+- **Trade-off.** The project now uses a newer ESLint 9 patch release, with the lockfile updated accordingly.
