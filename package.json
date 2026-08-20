@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "57.0.11",
+    "@lorenzopant/tmdb": "1.25.3",
     "@react-navigation/bottom-tabs": "7.18.8",
     "@react-navigation/native": "7.3.16",
+    "@tanstack/react-query": "5.101.4",
     "expo": "57.0.14",
     "expo-constants": "57.0.12",
     "expo-device": "57.0.1",

@@ -39,3 +39,11 @@ Each entry: **Context → Decision → Alternatives → Why → Trade-off**.
 - **Alternatives.** Retain an incompatible ESLint release or replace Expo's lint configuration.
 - **Why.** It provides the configuration API required by the installed Expo lint preset while preserving the project's flat-config setup.
 - **Trade-off.** The project now uses a newer ESLint 9 patch release, with the lockfile updated accordingly.
+
+## ADR-004 — TMDB client: @lorenzopant/tmdb
+
+- **Context.** The Home tab needs typed access to TMDB's weekly trending movies endpoint.
+- **Decision.** Use `@lorenzopant/tmdb` with the app's existing TanStack Query data-layer decision.
+- **Alternatives.** Direct `fetch` calls and manually defined response types.
+- **Why.** TMDB lists this package among its TypeScript community libraries, and it provides typed endpoint responses while TanStack Query supplies the loading, error, caching, and request lifecycle management already selected for this app.
+- **Trade-off.** The temporary Expo client integration exposes its `EXPO_PUBLIC_*` bearer token in the built app; a backend proxy will replace it before the credential is treated as secret.

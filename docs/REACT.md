@@ -9,7 +9,17 @@ If any of these rules contradict each other, or are not consistent with existing
 This project uses React 19 and relies on the React Compiler for automated memoization.
 DO NOT use any of the memoization APIs (useMemo, useCallback, and React.memo) from previous React versions, they won't provide any performance benefit and will make the codebase less legible.
 
+## React Native Specifics
+
+### Co-locate styles in a separate module
+
+Do not define styles in the component file. Co-locate them in a `styles.ts` file that has a default export.
+
 ## Modern React Practices
+
+### Infer component return types
+
+Let function components infer their return type; do not annotate them with `React.JSX.Element`, `ReactNode`, or similar types.
 
 ### useEffectEvent
 
