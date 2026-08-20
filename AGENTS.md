@@ -30,9 +30,11 @@ Run on device or simulator
 
 `npm run web`
 
-Lint
+Lint & typecheck
 
 `npm run lint`
+
+`npm run typecheck`
 
 ## Documentation
 
