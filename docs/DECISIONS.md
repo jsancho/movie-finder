@@ -47,3 +47,11 @@ Each entry: **Context → Decision → Alternatives → Why → Trade-off**.
 - **Alternatives.** Direct `fetch` calls and manually defined response types.
 - **Why.** TMDB lists this package among its TypeScript community libraries, and it provides typed endpoint responses while TanStack Query supplies the loading, error, caching, and request lifecycle management already selected for this app.
 - **Trade-off.** The temporary Expo client integration exposes its `EXPO_PUBLIC_*` bearer token in the built app; a backend proxy will replace it before the credential is treated as secret.
+
+## ADR-005 — Deprecated API enforcement: type-aware ESLint
+
+- **Context.** TypeScript surfaces `@deprecated` annotations in editors but does not fail `tsc`; the project needs CLI enforcement before deprecated APIs become additional technical debt.
+- **Decision.** Use Expo's bundled TypeScript ESLint support and enable `@typescript-eslint/no-deprecated` as an error for TypeScript source files using the project's TypeScript configuration.
+- **Alternatives.** Manually restrict selected imports; rely on editor diagnostics; add a baseline that permits current violations.
+- **Why.** Type-aware linting detects every visible `@deprecated` declaration, including dependency APIs, without maintaining a hand-curated denylist.
+- **Trade-off.** Linting uses TypeScript project information and is slower; current deprecated uses intentionally make `npm run lint` fail until migrated.
