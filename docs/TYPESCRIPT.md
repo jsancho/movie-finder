@@ -44,6 +44,7 @@
 - Types co-located with implementation
 - Shared types in dedicated modules
 - Avoid global type augmentation when possible
+- Do not add `.d.ts` files. Prefer typed implementation code, supported package types, or refactoring unsupported imports rather than ambient declarations.
 
 ## References
 
