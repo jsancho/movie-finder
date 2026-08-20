@@ -1,0 +1,8 @@
+# Ignore all hidden files and folders
+.*
+**/.*
+
+# Ignore auto-generated and external files
+node_modules
+package-lock.json
+dist

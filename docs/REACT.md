@@ -18,7 +18,7 @@ Leverage `useEffectEvent` when an Effect needs to read latest state or props, bu
 Typical use cases are handling non-reactive logic that needs latest values, e.g: websocket connections, timers, notifications, analytics.
 
 ```typescript
-import { useEffectEvent } from "react";
+import { useEffectEvent } from 'react';
 
 function useWindowEvent(event: string, handler: () => void) {
   const onEvent = useEffectEvent(handler);
@@ -196,16 +196,16 @@ Incorrect (processes all items even after finding answer):
 ```typescript
 function validateUsers(users: User[]) {
   let hasError = false;
-  let errorMessage = "";
+  let errorMessage = '';
 
   for (const user of users) {
     if (!user.email) {
       hasError = true;
-      errorMessage = "Email required";
+      errorMessage = 'Email required';
     }
     if (!user.name) {
       hasError = true;
-      errorMessage = "Name required";
+      errorMessage = 'Name required';
     }
     // Continues checking all users even after error found
   }
@@ -220,10 +220,10 @@ Correct (returns immediately on first error):
 function validateUsers(users: User[]) {
   for (const user of users) {
     if (!user.email) {
-      return { valid: false, error: "Email required" };
+      return { valid: false, error: 'Email required' };
     }
     if (!user.name) {
-      return { valid: false, error: "Name required" };
+      return { valid: false, error: 'Name required' };
     }
   }
 

@@ -1,19 +1,15 @@
-import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { SymbolView } from "expo-symbols";
-import { Pressable, StyleSheet, useColorScheme, View } from "react-native";
+import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { SymbolView } from 'expo-symbols';
+import { Pressable, StyleSheet, useColorScheme, View } from 'react-native';
 
-import { ExternalLink } from "@/components/external-link";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { Colors, MaxContentWidth, Spacing } from "@/constants/theme";
+import { ExternalLink } from '@/components/external-link';
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
+import { Colors, MaxContentWidth, Spacing } from '@/constants/theme';
 
-export function WebTabBar({
-  state,
-  descriptors,
-  navigation,
-}: Readonly<BottomTabBarProps>): React.JSX.Element {
+export function WebTabBar({ state, descriptors, navigation }: Readonly<BottomTabBarProps>): React.JSX.Element {
   const scheme = useColorScheme();
-  const colors = Colors[scheme === "unspecified" ? "light" : scheme];
+  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
 
   return (
     <View style={styles.tabListContainer}>
@@ -26,13 +22,13 @@ export function WebTabBar({
           const options = descriptors[route.key].options;
           const isFocused = state.index === index;
           const label =
-            typeof options.tabBarLabel === "function"
+            typeof options.tabBarLabel === 'function'
               ? route.name
               : (options.tabBarLabel ?? options.title ?? route.name);
 
           const onPress = (): void => {
             const event = navigation.emit({
-              type: "tabPress",
+              type: 'tabPress',
               target: route.key,
               canPreventDefault: true,
             });
@@ -50,19 +46,11 @@ export function WebTabBar({
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarButtonTestID}
               onPress={onPress}
-              onLongPress={() =>
-                navigation.emit({ type: "tabLongPress", target: route.key })
-              }
+              onLongPress={() => navigation.emit({ type: 'tabLongPress', target: route.key })}
               style={({ pressed }) => pressed && styles.pressed}
             >
-              <ThemedView
-                type={isFocused ? "backgroundSelected" : "backgroundElement"}
-                style={styles.tabButtonView}
-              >
-                <ThemedText
-                  type="small"
-                  themeColor={isFocused ? "text" : "textSecondary"}
-                >
+              <ThemedView type={isFocused ? 'backgroundSelected' : 'backgroundElement'} style={styles.tabButtonView}>
+                <ThemedText type="small" themeColor={isFocused ? 'text' : 'textSecondary'}>
                   {label}
                 </ThemedText>
               </ThemedView>
@@ -73,11 +61,7 @@ export function WebTabBar({
         <ExternalLink href="https://docs.expo.dev" asChild>
           <Pressable style={styles.externalPressable}>
             <ThemedText type="link">Docs</ThemedText>
-            <SymbolView
-              tintColor={colors.text}
-              name={{ ios: "arrow.up.right.square", web: "link" }}
-              size={12}
-            />
+            <SymbolView tintColor={colors.text} name={{ ios: 'arrow.up.right.square', web: 'link' }} size={12} />
           </Pressable>
         </ExternalLink>
       </ThemedView>
@@ -87,25 +71,25 @@ export function WebTabBar({
 
 const styles = StyleSheet.create({
   tabListContainer: {
-    position: "absolute",
-    width: "100%",
+    position: 'absolute',
+    width: '100%',
     padding: Spacing.three,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   innerContainer: {
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.five,
     borderRadius: Spacing.five,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     flexGrow: 1,
     gap: Spacing.two,
     maxWidth: MaxContentWidth,
   },
   brandText: {
-    marginRight: "auto",
+    marginRight: 'auto',
   },
   pressed: {
     opacity: 0.7,
@@ -116,9 +100,9 @@ const styles = StyleSheet.create({
     borderRadius: Spacing.three,
   },
   externalPressable: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: Spacing.one,
     marginLeft: Spacing.three,
   },

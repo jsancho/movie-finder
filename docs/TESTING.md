@@ -32,8 +32,5 @@ Avoid verbose expect statements that require checking many fields or excessive m
 Take advantage of partial matches for the data that is relevant to the feature scope.
 
 ```javascript
-expect(get).toHaveBeenCalledWith(
-  "a",
-  expect.objectContaining({ trigger: "prefetch" }),
-);
+expect(get).toHaveBeenCalledWith('a', expect.objectContaining({ trigger: 'prefetch' }));
 ```

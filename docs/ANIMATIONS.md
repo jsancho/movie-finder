@@ -46,7 +46,7 @@ Add to `babel.config.js`:
 
 ```javascript
 module.exports = {
-  plugins: ["react-native-worklets/plugin"], // Must be last
+  plugins: ['react-native-worklets/plugin'], // Must be last
 };
 ```
 
@@ -68,11 +68,7 @@ module.exports = {
 ### 1. Basic Animated Style (UI Thread)
 
 ```jsx
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-} from "react-native-reanimated";
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
 const FadeInView = () => {
   const opacity = useSharedValue(0);
@@ -93,12 +89,12 @@ const FadeInView = () => {
 ### 2. Run Code on UI Thread with `scheduleOnUI`
 
 ```jsx
-import { scheduleOnUI } from "react-native-worklets";
+import { scheduleOnUI } from 'react-native-worklets';
 
 const triggerAnimation = () => {
   scheduleOnUI(() => {
-    "worklet";
-    console.log("Running on UI thread");
+    'worklet';
+    console.log('Running on UI thread');
     // Direct UI manipulations here
   });
 };
@@ -107,17 +103,13 @@ const triggerAnimation = () => {
 ### 3. Call JS from UI Thread with `scheduleOnRN`
 
 ```jsx
-import { scheduleOnRN } from "react-native-worklets";
-import { Pressable } from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import { scheduleOnRN } from 'react-native-worklets';
+import { Pressable } from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 // Regular JS function
 const trackAnalytics = (value) => {
-  analytics.track("animation_complete", { value });
+  analytics.track('animation_complete', { value });
 };
 
 const AnimatedComponent = () => {
@@ -148,13 +140,13 @@ Avoid calling `scheduleOnRN` from `useAnimatedStyle`; style worklets can evaluat
 ### 4. Animation with Callback
 
 ```jsx
-import { scheduleOnRN } from "react-native-worklets";
+import { scheduleOnRN } from 'react-native-worklets';
 
 const AnimatedButton = () => {
   const scale = useSharedValue(1);
 
   const onComplete = () => {
-    console.log("Animation finished!");
+    console.log('Animation finished!');
   };
 
   const handlePress = () => {

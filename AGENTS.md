@@ -32,9 +32,15 @@ Run on device or simulator
 
 Lint & typecheck
 
+After every code edit, run lint, type-checking, and formatting.
+Fix all lint and type-check errors before requesting developer feedback.
+If repeated edits and reversions are needed to pass validation, stop and notify the developer to avoid an unproductive loop.
+
 `npm run lint`
 
 `npm run typecheck`
+
+`npm run prettify`
 
 ## Documentation
 
