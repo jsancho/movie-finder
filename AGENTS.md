@@ -50,3 +50,4 @@ If repeated edits and reversions are needed to pass validation, stop and notify 
 - Tests with jest, see [TESTING.md](./docs/TESTING.md)
 - For React conventions, see [REACT.md](./docs/REACT.md)
 - For optimal animation performance, see [ANIMATIONS.md](./docs/ANIMATIONS.md)
+- For UI mock storage and naming, see [UI_MOCKS.md](./docs/UI_MOCKS.md)

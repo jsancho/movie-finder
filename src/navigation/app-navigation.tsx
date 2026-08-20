@@ -1,32 +1,47 @@
-import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStaticNavigation, type StaticParamList } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
-import { Platform } from 'react-native';
 
-import { ExploreScreen } from '@/features/explore/explore-screen';
-import { HomeScreen } from '@/features/home/home-screen';
+import { ForYouScreen } from '@/features/for-you/for-you-screen';
+import { NextUpScreen } from '@/features/next-up/next-up-screen';
+import { ProfileScreen } from '@/features/profile/profile-screen';
+import { SearchScreen } from '@/features/search/search-screen';
 
-import { WebTabBar } from './web-tab-bar';
+import { MovieTabBar } from './movie-tab-bar';
 
 const RootTabs = createBottomTabNavigator({
-  initialRouteName: 'Home',
+  initialRouteName: 'ForYou',
   screenOptions: {
     headerShown: false,
   },
-  tabBar: (props) => (Platform.OS === 'web' ? <WebTabBar {...props} /> : <BottomTabBar {...props} />),
+  tabBar: (props) => <MovieTabBar {...props} />,
   screens: {
-    Home: {
-      screen: HomeScreen,
+    ForYou: {
+      screen: ForYouScreen,
       linking: '',
       options: {
-        tabBarLabel: 'Home',
+        tabBarLabel: 'For you',
       },
     },
-    Explore: {
-      screen: ExploreScreen,
-      linking: 'explore',
+    Search: {
+      screen: SearchScreen,
+      linking: 'search',
       options: {
-        tabBarLabel: 'Explore',
+        tabBarLabel: 'Search',
+      },
+    },
+    NextUp: {
+      screen: NextUpScreen,
+      linking: 'next-up',
+      options: {
+        tabBarLabel: 'Next up',
+      },
+    },
+    Profile: {
+      screen: ProfileScreen,
+      linking: 'profile',
+      options: {
+        tabBarLabel: 'Profile',
       },
     },
   },

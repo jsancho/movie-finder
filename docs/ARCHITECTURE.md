@@ -28,3 +28,7 @@ Every feature folder should be self-contained to promote high cohesion.
 It is easier to add an iterate features when all related files are close together.
 
 It's simplifies the use of feature flags, refactors, and even deletion when not required.
+
+## UI Mocks
+
+`ui-mocks/` at the repository root stores source images used to generate implementation code. It is documentation-only and must not be used as a runtime asset folder. See [UI_MOCKS.md](./UI_MOCKS.md) for the required naming convention.

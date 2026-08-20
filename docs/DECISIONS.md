@@ -55,3 +55,11 @@ Each entry: **Context → Decision → Alternatives → Why → Trade-off**.
 - **Alternatives.** Manually restrict selected imports; rely on editor diagnostics; add a baseline that permits current violations.
 - **Why.** Type-aware linting detects every visible `@deprecated` declaration, including dependency APIs, without maintaining a hand-curated denylist.
 - **Trade-off.** Linting uses TypeScript project information and is slower; current deprecated uses intentionally make `npm run lint` fail until migrated.
+
+## ADR-006 — Core app shell: four task-oriented tabs
+
+- **Context.** Movie Finder now centres on forming personal taste, finding a title, choosing from a pending queue, and keeping availability settings current.
+- **Decision.** Replace the starter Home and Explore tabs with a custom React Navigation bottom bar: For you, Search, Next up, and Profile. Keep the screen state in a small in-memory movie-library provider while the product flow is being developed.
+- **Alternatives.** Retain generic starter tabs; introduce a multi-stack route structure and persistence immediately.
+- **Why.** The four destinations reflect the user's recurring jobs and allow taste, favourites, and pending-list actions to share a single source of truth without adding authentication or a storage dependency prematurely.
+- **Trade-off.** Favourites, the pending list, and preferences reset on app restart. Durable persistence and fully live TMDB search should be added with the production data layer.
